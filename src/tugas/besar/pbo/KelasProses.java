@@ -8,7 +8,7 @@ public class KelasProses extends JFrame{
     JumlahKondisidanPosisi Kontak = new JumlahKondisidanPosisi();
          
         void ProsesKelistrikan(){
-            System.out.print("Jumlah stop kontak: ");
+            System.out.println("Jumlah stop kontak: ");
             Kontak.setStopKontakInt(input.nextInt());
             System.out.print("Kondisi stop kontak baik (ya/tidak): ");
             Kontak.setStopKontakKondisi(input.next());
