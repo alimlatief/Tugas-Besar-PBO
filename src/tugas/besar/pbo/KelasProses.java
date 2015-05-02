@@ -7,6 +7,20 @@ public class KelasProses extends JFrame{
     Scanner input = new Scanner(System.in);
     JumlahKondisidanPosisi Kontak = new JumlahKondisidanPosisi();
          
+        void IdentitasRuangKelas(){
+            System.out.println("Masukan nama ruang: ");
+            IRK.setNamaRuang(input.next());
+            System.out.println("Masukan lokasi ruang: ");
+            IRK.setLokasiRuang(input.next());
+            System.out.println("Pilih Program Studi/Fakultas");
+            IRK.setProgramStudi(input.next());
+        }
+        void manggilIdentitasRuangKelas(){
+            System.out.println(""+IRK.getNamaRuang());
+            System.out.println(""+IRK.getLokasiRuang());
+            System.out.println(""+IRK.getProgramStudi());
+        }
+        
         void ProsesKelistrikan(){
             System.out.println("Jumlah stop kontak: ");
             Kontak.setStopKontakInt(input.nextInt());
