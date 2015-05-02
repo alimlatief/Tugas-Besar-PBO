@@ -6,6 +6,7 @@ public class KelasTest {
     public static void main(String[] args){
         KelasProses manggil = new KelasProses();
         manggil.IdentitasRuangKelas();
+        
         manggil.ProsesKelistrikan();
         manggil.AnalisisKelistrikan();
         manggil.ProsesLCD();
