@@ -15,11 +15,7 @@ public class KelasProses extends JFrame{
             System.out.println("Pilih Program Studi/Fakultas");
             IRK.setProgramStudi(input.next());
         }
-        void manggilIdentitasRuangKelas(){
-            System.out.println(""+IRK.getNamaRuang());
-            System.out.println(""+IRK.getLokasiRuang());
-            System.out.println(""+IRK.getProgramStudi());
-        }
+        
         
         void ProsesKelistrikan(){
             System.out.println("Jumlah stop kontak: ");
