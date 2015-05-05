@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 public class KelasProses extends JFrame{
     Scanner input = new Scanner(System.in);
     JumlahKondisidanPosisi Kontak = new JumlahKondisidanPosisi();
+    IdentitasRuangKelas IRK = new IdentitasRuangKelas();
          
         void IdentitasRuangKelas(){
             System.out.println("Masukan nama ruang: ");
