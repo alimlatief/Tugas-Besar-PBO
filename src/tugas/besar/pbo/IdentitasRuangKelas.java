@@ -5,6 +5,7 @@ public class IdentitasRuangKelas {
     private String lokasiRuang;
     private String programStudi;
     
+    
         public void setNamaRuang(String namaRuang) {
             this.namaRuang = namaRuang;
         }
