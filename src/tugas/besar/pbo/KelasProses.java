@@ -114,13 +114,15 @@ public class KelasProses extends JFrame{
             System.out.print("masukan bandwidth: ");
             Kontak.setBandwidth(input.nextInt());
         }
-        boolean AnalisisInternet(){
+        int AnalisisInternet(){
             if(Kontak.getSSID()==1){
                 System.out.println("Sesuai");
+                return 1;
             }else if(Kontak.getSSID()!=1){
-                    System.out.println("tidak Sesuai");
+                System.out.println("tidak Sesuai");
+                return 0;
             }
-        return false;
+        return 0;
         }
         void ProsesCCTV(){
             System.out.print("Jumlah CCTV: ");
