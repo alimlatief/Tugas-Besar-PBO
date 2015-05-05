@@ -1,9 +1,8 @@
 package tugas.besar.pbo;
 
 import java.util.Scanner;
-import javax.swing.JFrame;
 
-public class KelasProses extends JFrame{
+public class KelasProses{
     Scanner input = new Scanner(System.in);
     JumlahKondisidanPosisi Kontak = new JumlahKondisidanPosisi();
     IdentitasRuangKelas IRK = new IdentitasRuangKelas();

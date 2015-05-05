@@ -1,7 +1,5 @@
 package tugas.besar.pbo;
 
-import javax.swing.JFrame;
-
 public class KelasTest {
     public static void main(String[] args){
         KelasProses manggil = new KelasProses();
