@@ -1,6 +1,15 @@
 package tugas.besar.pbo;
 
-public class JumlahKondisidanPosisi {
+abstract public class JumlahKondisidanPosisi {
+    
+    abstract int analisisKontak();
+    abstract int analisisKabelLCD();
+    abstract int analisisLampu();
+    abstract int analisisKipas();
+    abstract int analisisAC();
+    abstract int analisisInternet();
+    abstract int analisisCCTV();
+    
     private int IntKontak;
     private String KondisiKontak;
     private String PosisiKontak;

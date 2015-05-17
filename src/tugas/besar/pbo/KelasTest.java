@@ -5,19 +5,19 @@ public class KelasTest {
         KelasProses manggil = new KelasProses();
         manggil.IdentitasRuangKelas();
         
-        manggil.ProsesKelistrikan();
-        manggil.AnalisisKelistrikan();
+        manggil.ProsesKontak();
+        manggil.analisisKontak();
         manggil.ProsesLCD();
-        manggil.AnalisisLCD();
+        manggil.analisisKabelLCD();
         manggil.ProsesLampu();
-        manggil.AnalisisLampu();
+        manggil.analisisLampu();
         manggil.ProsesKipasAngin();
-        manggil.AnalisisKipasAngin();
+        manggil.analisisKipas();
         manggil.ProsesAC();
-        manggil.AnalisisAC();
+        manggil.analisisAC();
         manggil.ProsesInternet();
-        manggil.AnalisisInternet();
+        manggil.analisisInternet();
         manggil.ProsesCCTV();
-        manggil.AnalisisCCTV();
+        manggil.analisisCCTV();
     }
 }
