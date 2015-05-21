@@ -19,5 +19,7 @@ public class KelasTest {
         manggil.analisisInternet();
         manggil.ProsesCCTV();
         manggil.analisisCCTV();
+        
+        //bisa konek ke lenovo
     }
 }
