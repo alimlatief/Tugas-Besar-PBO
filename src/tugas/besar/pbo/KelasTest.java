@@ -1,24 +1,17 @@
 package tugas.besar.pbo;
 
-public class KelasTest {
+import java.io.Serializable;
+
+public class KelasTest implements Serializable{
     public static void main(String[] args){
-        KelasProses manggil = new KelasProses();
-        manggil.IdentitasRuangKelas();
         
-        manggil.ProsesKontak();
-        manggil.analisisKontak();
-        manggil.ProsesLCD();
-        manggil.analisisKabelLCD();
-        manggil.ProsesLampu();
-        manggil.analisisLampu();
-        manggil.ProsesKipasAngin();
-        manggil.analisisKipas();
-        manggil.ProsesAC();
-        manggil.analisisAC();
-        manggil.ProsesInternet();
-        manggil.analisisInternet();
-        manggil.ProsesCCTV();
-        manggil.analisisCCTV();
+        KelasProses manggil = new KelasProses();
+        
+        manggil.LoadUser();
+        manggil.IdentitasRuangKelas();
+        manggil.InputanUser();
+        manggil.SaveUser();
+        
         
         //bisa konek ke lenovo
     }

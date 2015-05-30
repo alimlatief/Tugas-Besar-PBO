@@ -1,167 +1,226 @@
 package tugas.besar.pbo;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class KelasProses extends JumlahKondisidanPosisi{
+public class KelasProses extends JumlahKondisidanPosisi implements Serializable{
     Scanner input = new Scanner(System.in);
-    JumlahKondisidanPosisi Kontak = new JumlahKondisidanPosisi(){
+    JumlahKondisidanPosisi file = new JumlahKondisidanPosisi() {
 
         @Override
-        int analisisKontak(){
-            return 0;
+        String analisisKontak() {
+            if(file.getStopKontakInt()>=4&&file.getStopKontakKondisi().equals("ya")&&file.getStopKontakPosisi().equals("ya")){
+                result = "sesuai";
+            }else if(file.getStopKontakInt()<=4||file.getStopKontakKondisi().equals("tidak")||file.getStopKontakPosisi().equals("tidak")){
+                result = "tidak sesuai";
+            }
+            return result;
         }
+
         @Override
-        int analisisKabelLCD(){
-            return 0;
+        String analisisKabelLCD() {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
+
         @Override
-        int analisisLampu(){
-            return 0;
+        String analisisLampu() {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
+
         @Override
-        int analisisKipas(){
-            return 0;
+        String analisisKipas() {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
+
         @Override
-        int analisisAC(){
-            return 0;
+        String analisisAC() {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
+
         @Override
-        int analisisInternet(){
-            return 0;
+        String analisisInternet() {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
+
         @Override
-        int analisisCCTV(){
-            return 0;
+        String analisisCCTV() {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
     };
     IdentitasRuangKelas IRK = new IdentitasRuangKelas();
          
         void IdentitasRuangKelas(){
+            
+        try {
+            ObjectInputStream load = new ObjectInputStream(new FileInputStream("Tugas Besar PBO.txt"));
+        }catch(FileNotFoundException ex) {
+            System.out.println("tidak ada data");
+        }catch(IOException ex){
+            System.out.println("gagal buka");
+        }
+            
             System.out.println("Masukan nama ruang: ");
             IRK.setNamaRuang(input.next());
             System.out.println("Masukan lokasi ruang: ");
             IRK.setLokasiRuang(input.next());
             System.out.println("Pilih Program Studi/Fakultas");
             IRK.setProgramStudi(input.next());
+            
+            try {
+                ObjectOutputStream save = new ObjectOutputStream(new FileOutputStream("Tugas Besar PBO.txt"));
+                save.writeObject(IRK);
+                save.close();
+            }catch (FileNotFoundException ex) {
+                System.out.println("file tidak ada");
+            }catch(IOException ex){
+                System.out.println("gagal simmpan");
+            }
         }
         
         
-        void ProsesKontak(){
+        void InputanUser(){
             System.out.println("Jumlah stop kontak: ");
-            Kontak.setStopKontakInt(input.nextInt());
+            file.setStopKontakInt(input.nextInt());
             System.out.print("Kondisi stop kontak baik (ya/tidak): ");
-            Kontak.setStopKontakKondisi(input.next());
+            file.setStopKontakKondisi(input.next());
             System.out.print("Posisi stop kontak dekat dosen & dipojok (ya/tidak): ");
-            Kontak.setStopKontakPosisi(input.next());
-        }
-        @Override
-        int analisisKontak() {
-            if(Kontak.getStopKontakInt()>=4&&Kontak.getStopKontakKondisi().equals("ya")&&Kontak.getStopKontakPosisi().equals("ya")){
-                System.out.println("Sesuai");
-            }else if(Kontak.getStopKontakInt()<=4||Kontak.getStopKontakKondisi().equals("tidak")||Kontak.getStopKontakPosisi().equals("tidak")){
-                System.out.println("tidak Sesuai");
-            }
-            return 0;
-        }
-        void ProsesLCD(){
+            file.setStopKontakPosisi(input.next());
+            
             System.out.print("Jumlah kabel LCD: ");
-            Kontak.setkabelLCDInt(input.nextInt());
+            file.setkabelLCDInt(input.nextInt());
             System.out.print("Kondisi kabel LCD berfungsi (ya/tidak): ");
-            Kontak.setkabelLCDKondisi(input.next());
+            file.setkabelLCDKondisi(input.next());
             System.out.print("Posisi kabel LCD dekat dosen (ya/tidak): ");
-            Kontak.setkabelLCDPosisi(input.next());
-        }
-        @Override
-        int analisisKabelLCD() {
-            if(Kontak.getkabelLCDInt()>=1&&Kontak.getkabelLCDKondisi().equals("ya")&&Kontak.getkabelLCDPosisi().equals("ya")){
-                System.out.println("Sesuai");
-            }else if(Kontak.getkabelLCDInt()<=1||Kontak.getkabelLCDKondisi().equals("tidak")||Kontak.getkabelLCDPosisi().equals("tidak")){
-                System.out.println("tidak Sesuai");
-            }
-            return 0;
-        }
-        void ProsesLampu(){
+            file.setkabelLCDPosisi(input.next());
+            
             System.out.print("Jumlah lampu: ");
-            Kontak.setJumlahLampu(input.nextInt());
+            file.setJumlahLampu(input.nextInt());
             System.out.print("Kondisi lampu baik (ya/tidak): ");
-            Kontak.setKondisiLampu(input.next());
+            file.setKondisiLampu(input.next());
             System.out.print("Posisi lampu dekat dosen (ya/tidak): ");
-            Kontak.setPosisiLampu(input.next());
-        }
-        @Override
-        int analisisLampu() {
-            if(Kontak.getJumlahLampu()>=18&&Kontak.getKondisiLampu().equals("ya")&&Kontak.getPosisiLampu().equals("ya")){
-                System.out.println("Sesuai");
-            }else if(Kontak.getJumlahLampu()<=18||Kontak.getKondisiLampu().equals("tidak")||Kontak.getPosisiLampu().equals("tidak")){
-                System.out.println("tidak Sesuai");
-            }
-            return 0;
-        }
-        void ProsesKipasAngin(){
+            file.setPosisiLampu(input.next());
+            
             System.out.print("Jumlah kipas angin: ");
-            Kontak.setJumlahKipas(input.nextInt());
+            file.setJumlahKipas(input.nextInt());
             System.out.print("Kondisi kipas angin baik (ya/tidak): ");
-            Kontak.setKondisiKipas(input.next());
+            file.setKondisiKipas(input.next());
             System.out.print("Posisi kipas angin diatap ruangan (ya/tidak): ");
-            Kontak.setPosisiKipas(input.next());
-        }
-        @Override
-        int analisisKipas() {
-            if(Kontak.getJumlahKipas()>=2&&Kontak.getKondisiKipas().equals("ya")&&Kontak.getPosisiKipas().equals("ya")){
-                System.out.println("Sesuai");
-            }else if(Kontak.getJumlahKipas()<=2||Kontak.getKondisiKipas().equals("tidak")||Kontak.getPosisiKipas().equals("tidak")){
-                System.out.println("tidak Sesuai");
-            }
-            return 0;
-        }
-        void ProsesAC(){
+            file.setPosisiKipas(input.next());
+            
             System.out.print("Jumlah AC: ");
-            Kontak.setJumlahAC(input.nextInt());
+            file.setJumlahAC(input.nextInt());
             System.out.print("Kondisi AC baik (ya/tidak): ");
-            Kontak.setKondisiAC(input.next());
+            file.setKondisiAC(input.next());
             System.out.print("Posisi AC disamping/ belakang (ya/tidak): ");
-            Kontak.setPosisiAC(input.next());
-        }
-        @Override
-        int analisisAC() {
-            if(Kontak.getJumlahAC()>=1&&Kontak.getKondisiAC().equals("ya")&&Kontak.getPosisiAC().equals("ya")){
-                System.out.println("Sesuai");
-            }else if(Kontak.getJumlahAC()<=1||Kontak.getKondisiAC().equals("tidak")||Kontak.getPosisiAC().equals("tidak")){
-                System.out.println("tidak Sesuai");
-            }
-            return 0;
-        }
-        void ProsesInternet(){
+            file.setPosisiAC(input.next());
+            
             System.out.println("1.UMM hotspot\n2.Premium hotspot\nPilih SSID: ");
-            Kontak.setSSID(input.nextInt());
+            file.setSSID(input.nextInt());
             System.out.print("masukan bandwidth: ");
-            Kontak.setBandwidth(input.nextInt());
-        }
-        @Override
-        int analisisInternet() {
-            if(Kontak.getSSID()==1){
-                System.out.println("Sesuai");
-            }else if(Kontak.getSSID()!=1){
-                System.out.println("tidak Sesuai");
-            }
-            return 0;
-        }
-        void ProsesCCTV(){
+            file.setBandwidth(input.nextInt());
+            
             System.out.print("Jumlah CCTV: ");
-            Kontak.setJumlahCCTV(input.nextInt());
+            file.setJumlahCCTV(input.nextInt());
             System.out.print("Kondisi CCTV baik (ya/tidak): ");
-            Kontak.setKondisiCCTV(input.next());
+            file.setKondisiCCTV(input.next());
             System.out.print("Posisi CCTV belakang (ya/tidak): ");
-            Kontak.setPosisiCCTV(input.next());
+            file.setPosisiCCTV(input.next());
+            
+            
+            
+        }
+        void SaveUser(){
+            try{
+                ObjectOutputStream save = new ObjectOutputStream(new FileOutputStream("Tugas Besar PBO.txt"));
+                save.writeObject(IRK);
+                save.close();
+            }catch(FileNotFoundException a) {
+                System.out.println("file gagal");
+            }catch(IOException b){
+                System.out.println("tidak tersimpan");
+            }
+        }
+        void LoadUser(){
+            try{
+                ObjectInputStream load = new ObjectInputStream(new FileInputStream("Tugas Besar PBO.txt"));
+                IdentitasRuangKelas JKP = (IdentitasRuangKelas) load.readObject();
+                System.out.println("nama ruang "+JKP.getNamaRuang());
+                System.out.println("lokasi ruang "+JKP.getLokasiRuang());
+                System.out.println("program studi "+JKP.getProgramStudi());
+                load.close();
+            }catch(FileNotFoundException c) {
+                System.out.println("file tidak ditemukan");
+            }catch(ClassNotFoundException e){
+                System.out.println("kelas tidak ditemukan");
+            }catch(IOException e){
+                System.out.println("tidak terbuka");
+            }
+        }
+        
+        
+        @Override
+        String analisisKabelLCD() {
+            if(file.getkabelLCDInt()>=1&&file.getkabelLCDKondisi().equals("ya")&&file.getkabelLCDPosisi().equals("ya")){
+                result = "sesuai";
+            }else if(file.getkabelLCDInt()<=1||file.getkabelLCDKondisi().equals("tidak")||file.getkabelLCDPosisi().equals("tidak")){
+                result = "tidak sesuai";
+            }
+            return result;
         }
         @Override
-        int analisisCCTV() {
-            if(Kontak.getJumlahCCTV()>=2&&Kontak.getKondisiCCTV().equals("ya")&&Kontak.getPosisiCCTV().equals("ya")){
-                System.out.println("Sesuai");
-            }else if(Kontak.getJumlahCCTV()<=2||Kontak.getKondisiCCTV().equals("tidak")||Kontak.getPosisiCCTV().equals("tidak")){
-                System.out.println("tidak Sesuai");
+        String analisisLampu() {
+            if(file.getJumlahLampu()>=18&&file.getKondisiLampu().equals("ya")&&file.getPosisiLampu().equals("ya")){
+                result = "sesuai";
+            }else if(file.getJumlahLampu()<=18||file.getKondisiLampu().equals("tidak")||file.getPosisiLampu().equals("tidak")){
+                result = "tidak sesuai";
             }
-            return 0;
+            return result;
         }
+        @Override
+        String analisisKipas() {
+            if(file.getJumlahKipas()>=2&&file.getKondisiKipas().equals("ya")&&file.getPosisiKipas().equals("ya")){
+                result = "sesuai";
+            }else if(file.getJumlahKipas()<=2||file.getKondisiKipas().equals("tidak")||file.getPosisiKipas().equals("tidak")){
+                result = "tidak sesuai";
+            }
+            return result;
+        }
+        @Override
+        String analisisAC() {
+            if(file.getJumlahAC()>=1&&file.getKondisiAC().equals("ya")&&file.getPosisiAC().equals("ya")){
+                result = "sesuai";
+            }else if(file.getJumlahAC()<=1||file.getKondisiAC().equals("tidak")||file.getPosisiAC().equals("tidak")){
+                result = "tidak sesuai";
+            }
+            return result;
+        }
+        @Override
+        String analisisInternet() {
+            if(file.getSSID()==1){
+                result = "sesuai";
+            }else if(file.getSSID()!=1){
+                result = "tidak sesuai";
+            }
+            return result;
+        }
+        @Override
+        String analisisCCTV() {
+            if(file.getJumlahCCTV()>=2&&file.getKondisiCCTV().equals("ya")&&file.getPosisiCCTV().equals("ya")){
+                result = "sesuai";
+            }else if(file.getJumlahCCTV()<=2||file.getKondisiCCTV().equals("tidak")||file.getPosisiCCTV().equals("tidak")){
+                result = "tidak sesuai";
+            }
+            return result;
+        }
+
+    @Override
+    String analisisKontak() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

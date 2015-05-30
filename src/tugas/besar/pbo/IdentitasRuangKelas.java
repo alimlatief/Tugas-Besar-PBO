@@ -1,6 +1,8 @@
 package tugas.besar.pbo;
 
-public class IdentitasRuangKelas {
+import java.io.*;
+
+public class IdentitasRuangKelas implements Serializable{
     private String namaRuang;
     private String lokasiRuang;
     private String programStudi;

@@ -1,14 +1,18 @@
 package tugas.besar.pbo;
 
-abstract public class JumlahKondisidanPosisi {
+import java.io.Serializable;
+
+public abstract class JumlahKondisidanPosisi extends IdentitasRuangKelas implements Serializable{
     
-    abstract int analisisKontak();
-    abstract int analisisKabelLCD();
-    abstract int analisisLampu();
-    abstract int analisisKipas();
-    abstract int analisisAC();
-    abstract int analisisInternet();
-    abstract int analisisCCTV();
+    abstract String analisisKontak();
+    abstract String analisisKabelLCD();
+    abstract String analisisLampu();
+    abstract String analisisKipas();
+    abstract String analisisAC();
+    abstract String analisisInternet();
+    abstract String analisisCCTV();
+    
+    String result;
     
     private int IntKontak;
     private String KondisiKontak;
