@@ -1,20 +1,19 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package tugas.besar.pbo;
 
 import java.io.Serializable;
 
-public abstract class JumlahKondisidanPosisi extends IdentitasRuangKelas implements Serializable{
-    
-    abstract String analisisKontak();
-    abstract String analisisKabelLCD();
-    abstract String analisisLampu();
-    abstract String analisisKipas();
-    abstract String analisisAC();
-    abstract String analisisInternet();
-    abstract String analisisCCTV();
-    
-    String result;
-    
-    private int IntKontak;
+/**
+ *
+ * @author Alim
+ */
+public class JumlahKondisidanPosisi extends IdentitasRuangKelas implements Serializable{
+
+    int IntKontak;
     private String KondisiKontak;
     private String PosisiKontak;
     
@@ -40,124 +39,127 @@ public abstract class JumlahKondisidanPosisi extends IdentitasRuangKelas impleme
     private int IntCCTV;
     private String KondisiCCTV;
     private String PosisiCCTV;
+
     
-    public void setStopKontakInt(int Kon){
-        this.IntKontak = Kon;
-    }
-    public int getStopKontakInt(){
+    public int getIntKontak() {
         return IntKontak;
     }
-    public void setStopKontakKondisi(String K){
-        this.KondisiKontak = K;
+    public void setIntKontak(int IntKontak) {
+        this.IntKontak = IntKontak;
     }
-    public String getStopKontakKondisi(){
+    public String getKondisiKontak() {
         return KondisiKontak;
     }
-    public void setStopKontakPosisi(String Pos){
-        this.PosisiKontak = Pos;
+    public void setKondisiKontak(String KondisiKontak) {
+        this.KondisiKontak = KondisiKontak;
     }
-    public String getStopKontakPosisi(){
+    public String getPosisiKontak() {
         return PosisiKontak;
     }
-    public void setkabelLCDInt(int lcdint){
-        this.IntKabelLCD = lcdint;
+    public void setPosisiKontak(String PosisiKontak) {
+        this.PosisiKontak = PosisiKontak;
     }
-    public int getkabelLCDInt(){
+    public int getIntKabelLCD() {
         return IntKabelLCD;
     }
-    public void setkabelLCDKondisi(String lcdkondisi){
-        this.KondisiKabelLCD = lcdkondisi;
+    public void setIntKabelLCD(int IntKabelLCD) {
+        this.IntKabelLCD = IntKabelLCD;
     }
-    public String getkabelLCDKondisi(){
+    public String getKondisiKabelLCD() {
         return KondisiKabelLCD;
     }
-    public void setkabelLCDPosisi(String lcdposisi){
-        this.PosisiKabelLCD = lcdposisi;
+    public void setKondisiKabelLCD(String KondisiKabelLCD) {
+        this.KondisiKabelLCD = KondisiKabelLCD;
     }
-    public String getkabelLCDPosisi(){
+    public String getPosisiKabelLCD() {
         return PosisiKabelLCD;
     }
-    public void setJumlahLampu(int Jlampu){
-        this.IntLampu = Jlampu;
+    public void setPosisiKabelLCD(String PosisiKabelLCD) {
+        this.PosisiKabelLCD = PosisiKabelLCD;
     }
-    public int getJumlahLampu(){
+    public int getIntLampu() {
         return IntLampu;
     }
-    public void setKondisiLampu(String Klampu){
-        this.KondisiLampu = Klampu;
+    public void setIntLampu(int IntLampu) {
+        this.IntLampu = IntLampu;
     }
-    public String getKondisiLampu(){
+    public String getKondisiLampu() {
         return KondisiLampu;
     }
-    public void setPosisiLampu(String Plampu){
-        this.PosisiLampu = Plampu;
+    public void setKondisiLampu(String KondisiLampu) {
+        this.KondisiLampu = KondisiLampu;
     }
-    public String getPosisiLampu(){
+    public String getPosisiLampu() {
         return PosisiLampu;
     }
-    public void setJumlahKipas(int Jkipas){
-        this.IntKipas = Jkipas;
+    public void setPosisiLampu(String PosisiLampu) {
+        this.PosisiLampu = PosisiLampu;
     }
-    public int getJumlahKipas(){
+    public int getIntKipas() {
         return IntKipas;
     }
-    public void setKondisiKipas(String Kkipas){
-        this.KondisiKipas = Kkipas;
+    public void setIntKipas(int IntKipas) {
+        this.IntKipas = IntKipas;
     }
-    public String getKondisiKipas(){
+    public String getKondisiKipas() {
         return KondisiKipas;
     }
-    public void setPosisiKipas(String Pkipas){
-        this.PosisiKipas = Pkipas;
+    public void setKondisiKipas(String KondisiKipas) {
+        this.KondisiKipas = KondisiKipas;
     }
-    public String getPosisiKipas(){
+    public String getPosisiKipas() {
         return PosisiKipas;
     }
-    public void setJumlahAC(int JAC){
-        this.IntAC = JAC;
+    public void setPosisiKipas(String PosisiKipas) {
+        this.PosisiKipas = PosisiKipas;
     }
-    public int getJumlahAC(){
+    public int getIntAC() {
         return IntAC;
-    }public void setKondisiAC(String KAC){
-        this.KondisiAC = KAC;
     }
-    public String getKondisiAC(){
+    public void setIntAC(int IntAC) {
+        this.IntAC = IntAC;
+    }
+    public String getKondisiAC() {
         return KondisiAC;
     }
-    public void setPosisiAC(String PAC){
-        this.PosisiAC = PAC;
+    public void setKondisiAC(String KondisiAC) {
+        this.KondisiAC = KondisiAC;
     }
-    public String getPosisiAC(){
+    public String getPosisiAC() {
         return PosisiAC;
     }
-    public void setSSID(int ssid){
-        this.SSID = ssid;
+    public void setPosisiAC(String PosisiAC) {
+        this.PosisiAC = PosisiAC;
     }
-    public int getSSID(){
+    public int getSSID() {
         return SSID;
     }
-    public void setBandwidth(int bandwith){
-        this.Bandwidth = bandwith;
+    public void setSSID(int SSID) {
+        this.SSID = SSID;
     }
-    public int getBandwidth(){
+    public int getBandwidth() {
         return Bandwidth;
     }
-    public void setJumlahCCTV(int JCCTV){
-        this.IntCCTV = JCCTV;
+    public void setBandwidth(int Bandwidth) {
+        this.Bandwidth = Bandwidth;
     }
-    public int getJumlahCCTV(){
+    public int getIntCCTV() {
         return IntCCTV;
     }
-    public void setKondisiCCTV(String KCCTV){
-        this.KondisiCCTV = KCCTV;
+    public void setIntCCTV(int IntCCTV) {
+        this.IntCCTV = IntCCTV;
     }
-    public String getKondisiCCTV(){
+    public String getKondisiCCTV() {
         return KondisiCCTV;
     }
-    public void setPosisiCCTV(String PCCTV){
-        this.PosisiCCTV = PCCTV;
+    public void setKondisiCCTV(String KondisiCCTV) {
+        this.KondisiCCTV = KondisiCCTV;
     }
-    public String getPosisiCCTV(){
+    public String getPosisiCCTV() {
         return PosisiCCTV;
     }
+    public void setPosisiCCTV(String PosisiCCTV) {
+        this.PosisiCCTV = PosisiCCTV;
+    }
+    
 }
