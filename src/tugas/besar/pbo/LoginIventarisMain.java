@@ -9,12 +9,8 @@ package tugas.besar.pbo;
  *
  * @author Alim
  */
-public class LoginIventaris {
-    String username;
-    String password;
-    
-    void Login(){
-        System.out.println("masukan username: ");
-        
+public class LoginIventarisMain {
+    public static void main(String[] args) {
+        LoginIventarisProses main = new LoginIventarisProses();
     }
 }
