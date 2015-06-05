@@ -10,5 +10,11 @@ package tugas.besar.pbo;
  * @author Alim
  */
 public class LoginIventaris {
+    String username;
+    String password;
     
+    void Login(){
+        System.out.println("masukan username: ");
+        
+    }
 }

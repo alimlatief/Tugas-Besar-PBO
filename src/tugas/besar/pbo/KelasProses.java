@@ -144,12 +144,17 @@ public class KelasProses extends JumlahKondisidanPosisi implements Serializable{
         if(pilih==1){
             System.out.println("masukan username: ");
             String nama = input.next();
-            System.out.println("masukan nim: ");
-            int nim = input.nextInt();
-            if(nama.equals("alim")&&nim==135||nama.equals("mozaze")&&nim==137||nama.equals("priyo")&&nim==138){
+            System.out.println("masukan password: ");
+            String pass = input.next();
+            if(nama.equals("alim")&&pass.equals("latief")||nama.equals("mozaze")&&pass.equals("sanora")||nama.equals("priyo")&&pass.equals("ari")){
                 System.out.println("Sesuai, Berhasil Login");
             }else{
                 System.out.println("Tidak sesuai, password atau username salah");
+            }
+            System.out.println("masukan Bandwidth: ");
+            file.setBandwidth(input.nextInt());
+            if(file.getBandwidth()>=1000){
+                System.out.println("");
             }
         }else if(pilih==2){
             System.out.println("masukan username: ");
@@ -157,9 +162,9 @@ public class KelasProses extends JumlahKondisidanPosisi implements Serializable{
             System.out.println("masukan password: ");
             String pass = input.next();
             if(nama.equals("alim")&&pass.equals("latief")||nama.equals("mozaze")&&pass.equals("sanora")||nama.equals("priyo")&&pass.equals("ari")){
-                System.out.println("Sesuai, Berhasil Login");
+                System.out.println("Tidak Sesuai");
             }else{
-                System.out.println("Tidak sesuai, password atau username salah");
+                System.out.println("Tidak Sesuai, password atau username salah");
             }
         }
     }
@@ -214,6 +219,8 @@ public class KelasProses extends JumlahKondisidanPosisi implements Serializable{
             System.out.println("\njumlah kipas angin "+jkp.getIntKipas());
             System.out.println("kondisi kipas baik "+jkp.getKondisiKipas());
             System.out.println("posisi kipas atap ruang "+jkp.getPosisiKipas());
+            System.out.println("\nSSID "+jkp.getSSID());
+            System.out.println("Bandwidth "+jkp.getBandwidth());
             System.out.println("\njumlah AC "+jkp.getIntAC());
             System.out.println("kondisi AC baik "+jkp.getKondisiAC());
             System.out.println("posisi AC dibelakang samping "+jkp.getPosisiAC());
