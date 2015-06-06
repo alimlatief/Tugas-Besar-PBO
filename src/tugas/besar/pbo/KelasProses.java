@@ -5,6 +5,7 @@
  */
 package tugas.besar.pbo;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -23,6 +24,8 @@ public class KelasProses extends JumlahKondisidanPosisi implements Serializable{
     Scanner input = new Scanner(System.in);
     JumlahKondisidanPosisi file = new JumlahKondisidanPosisi();
 
+    void IdentitasRuangKelas(){
+    }
     @Override
     public void setNamaRuang(String namaRuang) {
         System.out.println("masukan nama ruangan ");
@@ -140,29 +143,26 @@ public class KelasProses extends JumlahKondisidanPosisi implements Serializable{
     
     void inputInternet(){
         System.out.println("1. UMM Hotspot\n2. UMM Premium\npilih SSID ");
-        int pilih = input.nextInt();
-        if(pilih==1){
+        file.setSSID(input.nextInt());
+        if(file.getSSID()==1){
             System.out.println("masukan username: ");
             String nama = input.next();
             System.out.println("masukan password: ");
             String pass = input.next();
-            if(nama.equals("alim")&&pass.equals("latief")||nama.equals("mozaze")&&pass.equals("sanora")||nama.equals("priyo")&&pass.equals("ari")){
+            System.out.println("masukan Bandwidth [0-500]: ");
+            file.setBandwidth(input.nextInt());
+            if(nama.equals("informatika")&&pass.equals("kelasc")&&file.getBandwidth()>0&&file.getBandwidth()<=500){
                 System.out.println("Sesuai, Berhasil Login");
             }else{
                 System.out.println("Tidak sesuai, password atau username salah");
             }
-            System.out.println("masukan Bandwidth: ");
-            file.setBandwidth(input.nextInt());
-            if(file.getBandwidth()>=1000){
-                System.out.println("");
-            }
-        }else if(pilih==2){
+        }else if(file.getSSID()==2){
             System.out.println("masukan username: ");
             String nama = input.next();
             System.out.println("masukan password: ");
             String pass = input.next();
             if(nama.equals("alim")&&pass.equals("latief")||nama.equals("mozaze")&&pass.equals("sanora")||nama.equals("priyo")&&pass.equals("ari")){
-                System.out.println("Tidak Sesuai");
+                System.out.println("SSID Tidak Sesuai");
             }else{
                 System.out.println("Tidak Sesuai, password atau username salah");
             }
@@ -187,7 +187,23 @@ public class KelasProses extends JumlahKondisidanPosisi implements Serializable{
         }
         return "Sesuai";
     }
-    
+    void Delete(){
+        try {
+            FileOutputStream data = new FileOutputStream("DATA TB.dat");
+            data.close();
+        } catch(IOException ad){
+            
+        }
+        
+        File database = new File("DATA TB.dat");
+        database.delete(); 
+        if(database.exists()){
+            System.out.println("File DATA TB.dat ada");
+        }
+        else{
+            System.out.println("File DATA TB.dat sudah dihapus");
+        }
+    }
     void Save(){
         try {
             ObjectOutputStream simpan = new ObjectOutputStream(new FileOutputStream("DATA TB.dat"));
@@ -203,7 +219,7 @@ public class KelasProses extends JumlahKondisidanPosisi implements Serializable{
         try {
             ObjectInputStream buka = new ObjectInputStream(new FileInputStream("DATA TB.dat"));
             JumlahKondisidanPosisi jkp = (JumlahKondisidanPosisi) buka.readObject();
-            System.out.println("========== DATA TERSIMPAN ==========");
+            System.out.println("\n========== DATA TERSIMPAN ==========");
             System.out.println("nama ruang "+jkp.getNamaRuang());
             System.out.println("lokasi ruang "+jkp.getLokasiRuang());
             System.out.println("program studi "+jkp.getProgramStudi());
@@ -224,15 +240,14 @@ public class KelasProses extends JumlahKondisidanPosisi implements Serializable{
             System.out.println("\njumlah AC "+jkp.getIntAC());
             System.out.println("kondisi AC baik "+jkp.getKondisiAC());
             System.out.println("posisi AC dibelakang samping "+jkp.getPosisiAC());
-            System.out.println("=====================================");
+            System.out.println("=====================================\n");
             buka.close();
         } catch (FileNotFoundException ex) {
-            System.out.println("file tidak ditemukan");
+            System.out.println("file telah terhapus");
         } catch (ClassNotFoundException ex){
             System.out.println("kelas tidak bisa dibuka");
         }catch (IOException ex){
             System.out.println("gagal buka");
         }
     }
-    
 }

@@ -6,6 +6,8 @@
 package tugas.besar.pbo;
 
 import java.io.Serializable;
+import java.util.Scanner;
+import javax.swing.JFrame;
 
 /**
  *
@@ -13,10 +15,10 @@ import java.io.Serializable;
  */
 public class KelasTest implements Serializable {
     public static void main(String[] args){
-        
+    
+    Scanner inputan = new Scanner(System.in);
     KelasProses manggil = new KelasProses();
     
-        manggil.Load();
         manggil.setNamaRuang(null);
         manggil.setLokasiRuang(null);
         manggil.setProgramStudi(null);
@@ -33,7 +35,18 @@ public class KelasTest implements Serializable {
         manggil.inputInternet();
         manggil.inputCCTV();
         manggil.analisisCCTV();
-        manggil.Save();
+        
+        System.out.print("1. Save\n2. Load\n3. Delete\nmasukan opsi pilihan: ");
+        int pilih = inputan.nextInt();
+        if(pilih==1){
+            manggil.Save();
+        }
+        if(pilih==2){
+            manggil.Load();
+        }
+        if(pilih==3){
+            manggil.Delete();
+        }
         //bisa konek ke lenovo
     }
 }

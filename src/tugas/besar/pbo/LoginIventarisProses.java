@@ -48,12 +48,12 @@ public class LoginIventarisProses extends JFrame implements Serializable{
         background.add(keyword);
         
         GridBagLayout bag = new GridBagLayout();
-        GridBagConstraints gbc = new GridBagConstraints();
+        GridBagConstraints posisi = new GridBagConstraints();
         JPanel backgroun2 = new JPanel();
         backgroun2.setLayout(bag);
-        gbc.gridx=0;
-        bag.setConstraints(tombolLogin, gbc);
-        bag.setConstraints(label, gbc);
+        posisi.gridx = 0;
+        bag.setConstraints(tombolLogin, posisi);
+        bag.setConstraints(label, posisi);
         backgroun2.add(tombolLogin);
         backgroun2.add(label);
         getContentPane().add("North", background);
