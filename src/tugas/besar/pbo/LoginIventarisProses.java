@@ -20,6 +20,12 @@ import javax.swing.*;
  */
 public class LoginIventarisProses extends JFrame implements Serializable{
     
+    public static void main(String[] args) {
+        LoginIventarisProses login = new LoginIventarisProses();
+        login.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        login.setVisible(true);
+    }
+    
     Scanner input = new Scanner(System.in);
     
     JLabel label;
@@ -61,8 +67,7 @@ public class LoginIventarisProses extends JFrame implements Serializable{
         
         tombolLogin.addActionListener(new LoginIventarisProses.penangananTombol());
         
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        show();
+        
     }
 
     class penangananTombol implements ActionListener {
@@ -73,7 +78,8 @@ public class LoginIventarisProses extends JFrame implements Serializable{
                 String namapemakai = pengguna.getText();
                 String kode = new String(keyword.getPassword());
                 if(namapemakai.compareTo("informatika")==0&&kode.compareTo("kelasc")==0){
-                    label.setText("Berhasil Login");
+                    GUIProsesIdentitasRuangKelas identitasRuangKelas = new GUIProsesIdentitasRuangKelas();
+                    identitasRuangKelas.setVisible(true);
                 }else{
                     label.setText("Username atau Password salah!!");
                 }

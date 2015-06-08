@@ -13,6 +13,8 @@ import java.io.Serializable;
  */
 public class JumlahKondisidanPosisi extends IdentitasRuangKelas implements Serializable{
 
+    String result;
+    
     int IntKontak;
     private String KondisiKontak;
     private String PosisiKontak;
@@ -35,6 +37,7 @@ public class JumlahKondisidanPosisi extends IdentitasRuangKelas implements Seria
     
     private int SSID;
     private int Bandwidth;
+    private String pilih;
     
     private int IntCCTV;
     private String KondisiCCTV;
@@ -162,4 +165,87 @@ public class JumlahKondisidanPosisi extends IdentitasRuangKelas implements Seria
         this.PosisiCCTV = PosisiCCTV;
     }
     
+    public String getPilih() {
+        return pilih;
+    }
+    public void setPilih(String pilih) {
+        this.pilih = pilih;
+    }
+    
+    String analisisKelistrikan(){
+        if(getIntKontak()>=4&&getKondisiKontak().equals("y")&&getPosisiKontak().equals("y")){
+            result = "Stop Kontak Sesuai";
+        }else if(getIntKontak()<=4||getKondisiKontak().equals("t")||getPosisiKontak().equals("t")){
+            result = "Stop Kontak Tidak Sesuai";
+        }else{
+            result = "Stop Kontak Tidak Sesuai";
+        }
+        return result;
+    }
+    String analisisLCD(){
+        if(getIntKabelLCD()>=1&&getKondisiKabelLCD().equals("y")&&getPosisiKabelLCD().equals("y")){
+            result = "Kabel LCD Sesuai";
+        }else if(getIntKabelLCD()<=1||getKondisiKabelLCD().equals("t")||getPosisiKabelLCD().equals("t")){
+            result = "Kabel LCD Tidak Sesuai";
+        }else{
+            result = "Kabel LCD Tidak Sesuai";
+        }
+        return result;
+    }
+    String analisisLampu(){
+        if(getIntLampu()>=18&&getKondisiLampu().equals("y")&&getPosisiLampu().equals("y")){
+            result = "Lampu Sesuai";
+        }else if(getIntLampu()<=18||getKondisiLampu().equals("t")||getPosisiLampu().equals("t")){
+            result = "Lampu Tidak Sesuai";
+        }else{
+            result = "Lampu Tidak Sesuai";
+        }
+        return result;
+    }
+    String analisisKipasAngin(){
+        if(getIntKipas()>=2&&getKondisiKipas().equals("y")&&getPosisiKipas().equals("y")){
+            result = "Kipas Angin Sesuai";
+        }else if(getIntKipas()<=2||getKondisiKipas().equals("t")||getPosisiKipas().equals("t")){
+            result = "Kipas Angin Tidak Sesuai";
+        }else{
+            result = "Kipas Angin Tidak Sesuai";
+        }
+        return result;
+    }
+    String analisisAC(){
+        if(getIntAC()>=1&&getKondisiAC().equals("y")&&getPosisiAC().equals("y")){
+            result = "AC Sesuai";
+        }else if(getIntAC()<=1||getKondisiAC().equals("t")||getPosisiAC().equals("t")){
+            result = "AC Tidak Sesuai";
+        }else{
+            result = "AC Tidak Sesuai";
+        }
+        return result;
+    }
+    String analisisInternet(){
+        if(getSSID()==1){
+            if(getBandwidth()>0&&getPilih().equals("y")){
+                result = "SSID Sesuai dan bisa login";
+            }else{
+                result = "Tidak Sesuai";
+            }
+        }else if(getSSID()==2){
+            if(getBandwidth()>0){
+                result = "SSID Tidak Sesuai";
+            }else{
+                result = "Tidak Sesuai";
+            }
+        }
+        return result;
+    }
+    String analisisCCTV(){
+        if(getIntCCTV()>=2&&getKondisiCCTV().equals("y")&&getPosisiCCTV().equals("y")){
+            result = "CCTV Sesuai";
+        }else if(getIntCCTV()<=2||getKondisiCCTV().equals("t")||getPosisiCCTV().equals("t")){
+            result = "CCTV Tidak Sesuai";
+        }else{
+            result = "CCTV Tidak Sesuai";
+        }
+        return result;
+    }
 }

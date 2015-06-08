@@ -24,8 +24,6 @@ public class KelasProses extends JumlahKondisidanPosisi implements Serializable{
     Scanner input = new Scanner(System.in);
     JumlahKondisidanPosisi file = new JumlahKondisidanPosisi();
 
-    void IdentitasRuangKelas(){
-    }
     @Override
     public void setNamaRuang(String namaRuang) {
         System.out.println("masukan nama ruangan ");
@@ -44,8 +42,6 @@ public class KelasProses extends JumlahKondisidanPosisi implements Serializable{
         file.setProgramStudi(input.nextLine()); 
     }
     
-    
-    
     void inputKontak(){
         System.out.println("masukan jumlah stop kontak: ");
         file.setIntKontak(input.nextInt());
@@ -54,7 +50,8 @@ public class KelasProses extends JumlahKondisidanPosisi implements Serializable{
         System.out.println("masukan posisi stop kontak dipojok ruangan dan dekat dosen [y/t]");
         file.setPosisiKontak(input.next());
     }
-    String analisisKelistrikan(){
+    @Override
+    String analisisKelistrikan() {
         if(file.getIntKontak()>=4&&file.getKondisiKontak().equals("y")&&file.getPosisiKontak().equals("y")){
             System.out.println("Sesuai");
         }else if(file.getIntKontak()<=4||file.getKondisiKontak().equals("t")||file.getPosisiKontak().equals("t")){
@@ -73,7 +70,9 @@ public class KelasProses extends JumlahKondisidanPosisi implements Serializable{
         System.out.println("masukan posisi kabel LCD dekat dosen [y/t]");
         file.setPosisiKabelLCD(input.next());
     }
-    String analisisLCD(){
+
+    @Override
+    String analisisLCD() {
         if(file.getIntKabelLCD()>=1&&file.getKondisiKabelLCD().equals("y")&&file.getPosisiKabelLCD().equals("y")){
             System.out.println("Sesuai");
         }else if(file.getIntKabelLCD()<=1||file.getKondisiKabelLCD().equals("t")||file.getPosisiKabelLCD().equals("t")){
@@ -92,7 +91,8 @@ public class KelasProses extends JumlahKondisidanPosisi implements Serializable{
         System.out.println("masukan posisi lampu atap ruangan [y/t]");
         file.setPosisiLampu(input.next());
     }
-    String analisisLampu(){
+    @Override
+    String analisisLampu() {
         if(file.getIntLampu()>=18&&file.getKondisiLampu().equals("y")&&file.getPosisiLampu().equals("y")){
             System.out.println("Sesuai");
         }else if(file.getIntLampu()<=18||file.getKondisiLampu().equals("t")||file.getPosisiLampu().equals("t")){
@@ -103,6 +103,7 @@ public class KelasProses extends JumlahKondisidanPosisi implements Serializable{
         return "Sesuai";
     }
     
+    
     void inputKipasAngin(){
         System.out.println("masukan jumlah kipas angin: ");
         file.setIntKipas(input.nextInt());
@@ -111,7 +112,8 @@ public class KelasProses extends JumlahKondisidanPosisi implements Serializable{
         System.out.println("masukan posisi kipas angin atap ruangan[y/t]");
         file.setPosisiKipas(input.next());
     }
-    String analisisKipasAngin(){
+    @Override
+    String analisisKipasAngin() {
         if(file.getIntKipas()>=2&&file.getKondisiKipas().equals("y")&&file.getPosisiKipas().equals("y")){
             System.out.println("Sesuai");
         }else if(file.getIntKipas()<=2||file.getKondisiKipas().equals("t")||file.getPosisiKipas().equals("t")){
@@ -130,7 +132,8 @@ public class KelasProses extends JumlahKondisidanPosisi implements Serializable{
         System.out.println("masukan posisi AC dibelakang samping [y/t]");
         file.setPosisiAC(input.next());
     }
-    String analisisAC(){
+    @Override
+    String analisisAC() {
         if(file.getIntAC()>=1&&file.getKondisiAC().equals("y")&&file.getPosisiAC().equals("y")){
             System.out.println("Sesuai");
         }else if(file.getIntAC()<=1||file.getKondisiAC().equals("t")||file.getPosisiAC().equals("t")){
@@ -141,32 +144,31 @@ public class KelasProses extends JumlahKondisidanPosisi implements Serializable{
         return "Sesuai";
     }
     
+    
     void inputInternet(){
         System.out.println("1. UMM Hotspot\n2. UMM Premium\npilih SSID ");
         file.setSSID(input.nextInt());
+        System.out.println("masukan Bandwidth: ");
+        file.setBandwidth(input.nextInt());
+        System.out.println("bisa login [y/t] ");
+        file.setPilih(input.next());
+    }
+    @Override
+    String analisisInternet(){
         if(file.getSSID()==1){
-            System.out.println("masukan username: ");
-            String nama = input.next();
-            System.out.println("masukan password: ");
-            String pass = input.next();
-            System.out.println("masukan Bandwidth [0-500]: ");
-            file.setBandwidth(input.nextInt());
-            if(nama.equals("informatika")&&pass.equals("kelasc")&&file.getBandwidth()>0&&file.getBandwidth()<=500){
-                System.out.println("Sesuai, Berhasil Login");
+            if(file.getBandwidth()>0&&file.getPilih().equals("y")){
+                System.out.println("SSID Sesuai dan bisa login");
             }else{
-                System.out.println("Tidak sesuai, password atau username salah");
+                System.out.println("Tidak Sesuai");
             }
         }else if(file.getSSID()==2){
-            System.out.println("masukan username: ");
-            String nama = input.next();
-            System.out.println("masukan password: ");
-            String pass = input.next();
-            if(nama.equals("alim")&&pass.equals("latief")||nama.equals("mozaze")&&pass.equals("sanora")||nama.equals("priyo")&&pass.equals("ari")){
+            if(file.getBandwidth()>0){
                 System.out.println("SSID Tidak Sesuai");
             }else{
-                System.out.println("Tidak Sesuai, password atau username salah");
+                System.out.println("Tidak Sesuai");
             }
         }
+        return "Sesuai";
     }
     
     void inputCCTV(){
@@ -177,7 +179,9 @@ public class KelasProses extends JumlahKondisidanPosisi implements Serializable{
         System.out.println("masukan posisi CCTV depan&belakang[y/t]");
         file.setPosisiCCTV(input.next());
     }
-    String analisisCCTV(){
+
+    @Override
+    String analisisCCTV() {
         if(file.getIntCCTV()>=2&&file.getKondisiCCTV().equals("y")&&file.getPosisiCCTV().equals("y")){
             System.out.println("Sesuai");
         }else if(file.getIntCCTV()<=2||file.getKondisiCCTV().equals("t")||file.getPosisiCCTV().equals("t")){
@@ -187,12 +191,13 @@ public class KelasProses extends JumlahKondisidanPosisi implements Serializable{
         }
         return "Sesuai";
     }
+    
     void Delete(){
         try {
             FileOutputStream data = new FileOutputStream("DATA TB.dat");
             data.close();
         } catch(IOException ad){
-            
+            System.out.println("gagal delete");
         }
         
         File database = new File("DATA TB.dat");
@@ -214,6 +219,15 @@ public class KelasProses extends JumlahKondisidanPosisi implements Serializable{
         } catch (IOException ex){
             System.out.println("gagal simpan");
         }
+        
+        File database = new File("DATA TB.dat");
+        database.canWrite();
+        if(database.exists()){
+            System.out.println("File Inputan berhasil disimpan");
+        }
+        else{
+            System.out.println("File Inputan gagal simpan");
+        }
     }
     void Load(){
         try {
@@ -226,20 +240,30 @@ public class KelasProses extends JumlahKondisidanPosisi implements Serializable{
             System.out.println("\njumlah kontak "+jkp.getIntKontak());
             System.out.println("kondisi kontak baik "+jkp.getKondisiKontak());
             System.out.println("posisi kontak dekat dosen "+jkp.getPosisiKontak());
+            System.out.println(jkp.analisisKelistrikan());
             System.out.println("\njumlah LCD "+jkp.getIntKabelLCD());
             System.out.println("kondisi LCD baik "+jkp.getKondisiKabelLCD());
             System.out.println("posisi LCD dekat dosen "+jkp.getPosisiKabelLCD());
+            System.out.println(jkp.analisisLCD());
             System.out.println("\njumlah lampu "+jkp.getIntLampu());
             System.out.println("kondisi lampu baik "+jkp.getKondisiLampu());
             System.out.println("posisi lampu atap ruang "+jkp.getPosisiLampu());
+            System.out.println(jkp.analisisLampu());
             System.out.println("\njumlah kipas angin "+jkp.getIntKipas());
             System.out.println("kondisi kipas baik "+jkp.getKondisiKipas());
             System.out.println("posisi kipas atap ruang "+jkp.getPosisiKipas());
+            System.out.println(jkp.analisisKipasAngin());
             System.out.println("\nSSID "+jkp.getSSID());
             System.out.println("Bandwidth "+jkp.getBandwidth());
+            System.out.println(jkp.analisisInternet());
             System.out.println("\njumlah AC "+jkp.getIntAC());
             System.out.println("kondisi AC baik "+jkp.getKondisiAC());
             System.out.println("posisi AC dibelakang samping "+jkp.getPosisiAC());
+            System.out.println(jkp.analisisAC());
+            System.out.println("\njumlah CCTV "+jkp.getIntCCTV());
+            System.out.println("kondisi CCTV baik "+jkp.getKondisiCCTV());
+            System.out.println("posisi CCTV dibelakang dan didepan "+jkp.getPosisiCCTV());
+            System.out.println(jkp.analisisCCTV());
             System.out.println("=====================================\n");
             buka.close();
         } catch (FileNotFoundException ex) {
@@ -248,6 +272,15 @@ public class KelasProses extends JumlahKondisidanPosisi implements Serializable{
             System.out.println("kelas tidak bisa dibuka");
         }catch (IOException ex){
             System.out.println("gagal buka");
+        }
+        
+        File database = new File("DATA TB.dat");
+        database.canRead();
+        if(database.exists()){
+            System.out.println("File Load berhasil dibuka");
+        }
+        else{
+            System.out.println("File Load gagal dibuka");
         }
     }
 }
