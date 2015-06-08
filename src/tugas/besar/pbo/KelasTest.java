@@ -21,7 +21,7 @@ public class KelasTest implements Serializable {
     
     int pilih;
             
-        System.out.print("1. Save\n2. Load\n3. Delete\n4. Input data\n5. Login\nmasukan opsi pilihan: ");
+        System.out.print("1. Save\n2. Load\n3. Delete\n4. Input data\nmasukan opsi pilihan: ");
         pilih = inputan.nextInt();
         if(pilih==1){
             manggil.Save();
@@ -58,9 +58,6 @@ public class KelasTest implements Serializable {
             if(pilih==2){
                 manggil.Load();
             }
-        }
-        if(pilih==5){
-            
         }
         //bisa konek ke lenovo
     }

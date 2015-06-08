@@ -63,7 +63,7 @@ public class LoginIventarisProses extends JFrame implements Serializable{
         backgroun2.add(tombolLogin);
         backgroun2.add(label);
         getContentPane().add("North", background);
-        getContentPane().add("South", backgroun2);
+        getContentPane().add(backgroun2);
         
         tombolLogin.addActionListener(new LoginIventarisProses.penangananTombol());
         
@@ -75,9 +75,11 @@ public class LoginIventarisProses extends JFrame implements Serializable{
         public void actionPerformed(ActionEvent e) {
             String s = e.getActionCommand();
             if(s.equals("Login")){
+                LoginIventarisProses login = new LoginIventarisProses();
                 String namapemakai = pengguna.getText();
                 String kode = new String(keyword.getPassword());
                 if(namapemakai.compareTo("informatika")==0&&kode.compareTo("kelasc")==0){
+                    login.setVisible(false);
                     GUIProsesIdentitasRuangKelas identitasRuangKelas = new GUIProsesIdentitasRuangKelas();
                     identitasRuangKelas.setVisible(true);
                 }else{
